@@ -14,6 +14,18 @@ public class HightlightHandler : MonoBehaviour
         int row = chessPlayerPlacementHandler.row;
         int column = chessPlayerPlacementHandler.column;
 
+        if (row + 1 <= 7)
+        {
+            if (obstacleChecker.CheckObstacle(row + 1, column + 1) && column + 1 <= 7)
+            {
+                obstacleChecker.CheckEnemy(row + 1, column + 1);
+            }
+            if (obstacleChecker.CheckObstacle(row + 1, column - 1) && column - 1 >= 0)
+            {
+                obstacleChecker.CheckEnemy(row + 1, column - 1);
+            }
+        }
+
         if (row == 1)
         {
             for (int i = 0; i < 2; i++)
@@ -26,7 +38,7 @@ public class HightlightHandler : MonoBehaviour
                 row++;
             }
         }
-        else if (row + 1 < 7 && row + 1 > 0 && column + 1 < 7 && column + 1 > 0)
+        else if (row + 1 <= 7)
         {
             if (obstacleChecker.CheckObstacle(row + 1, column))
             {
@@ -47,6 +59,7 @@ public class HightlightHandler : MonoBehaviour
         {
             if (obstacleChecker.CheckObstacle(chessPlayerPlacementHandler.row + 1, chessPlayerPlacementHandler.column))
             {
+                obstacleChecker.CheckEnemy(chessPlayerPlacementHandler.row + 1, chessPlayerPlacementHandler.column);
                 break;
             }
             chessBoardPlacementHandler.Highlight(chessPlayerPlacementHandler.row + 1, chessPlayerPlacementHandler.column);
@@ -59,6 +72,7 @@ public class HightlightHandler : MonoBehaviour
         {
             if (obstacleChecker.CheckObstacle(chessPlayerPlacementHandler.row - 1, chessPlayerPlacementHandler.column))
             {
+                obstacleChecker.CheckEnemy(chessPlayerPlacementHandler.row - 1, chessPlayerPlacementHandler.column);
                 break;
             }
             chessBoardPlacementHandler.Highlight(chessPlayerPlacementHandler.row - 1, chessPlayerPlacementHandler.column);
@@ -71,6 +85,7 @@ public class HightlightHandler : MonoBehaviour
         {
             if (obstacleChecker.CheckObstacle(chessPlayerPlacementHandler.row, chessPlayerPlacementHandler.column + 1))
             {
+                obstacleChecker.CheckEnemy(chessPlayerPlacementHandler.row, chessPlayerPlacementHandler.column + 1);
                 break;
             }
             chessBoardPlacementHandler.Highlight(chessPlayerPlacementHandler.row, chessPlayerPlacementHandler.column + 1);
@@ -83,6 +98,7 @@ public class HightlightHandler : MonoBehaviour
         {
             if (obstacleChecker.CheckObstacle(chessPlayerPlacementHandler.row, chessPlayerPlacementHandler.column - 1))
             {
+                obstacleChecker.CheckEnemy(chessPlayerPlacementHandler.row, chessPlayerPlacementHandler.column - 1);
                 break;
             }
             chessBoardPlacementHandler.Highlight(chessPlayerPlacementHandler.row, chessPlayerPlacementHandler.column - 1);
@@ -103,6 +119,7 @@ public class HightlightHandler : MonoBehaviour
         {
             if (obstacleChecker.CheckObstacle(chessPlayerPlacementHandler.row + 1, chessPlayerPlacementHandler.column + 1))
             {
+                obstacleChecker.CheckEnemy(chessPlayerPlacementHandler.row + 1, chessPlayerPlacementHandler.column + 1);
                 break;
             }
             chessBoardPlacementHandler.Highlight(chessPlayerPlacementHandler.row + 1, chessPlayerPlacementHandler.column + 1);
@@ -117,6 +134,7 @@ public class HightlightHandler : MonoBehaviour
         {
             if (obstacleChecker.CheckObstacle(chessPlayerPlacementHandler.row - 1, chessPlayerPlacementHandler.column - 1))
             {
+                obstacleChecker.CheckEnemy(chessPlayerPlacementHandler.row - 1, chessPlayerPlacementHandler.column - 1);
                 break;
             }
             chessBoardPlacementHandler.Highlight(chessPlayerPlacementHandler.row - 1, chessPlayerPlacementHandler.column - 1);
@@ -131,6 +149,7 @@ public class HightlightHandler : MonoBehaviour
         {
             if (obstacleChecker.CheckObstacle(chessPlayerPlacementHandler.row - 1, chessPlayerPlacementHandler.column + 1))
             {
+                obstacleChecker.CheckEnemy(chessPlayerPlacementHandler.row - 1, chessPlayerPlacementHandler.column + 1);
                 break;
             }
             chessBoardPlacementHandler.Highlight(chessPlayerPlacementHandler.row - 1, chessPlayerPlacementHandler.column + 1);
@@ -145,6 +164,7 @@ public class HightlightHandler : MonoBehaviour
         {
             if (obstacleChecker.CheckObstacle(chessPlayerPlacementHandler.row + 1, chessPlayerPlacementHandler.column - 1))
             {
+                obstacleChecker.CheckEnemy(chessPlayerPlacementHandler.row + 1, chessPlayerPlacementHandler.column - 1);
                 break;
             }
             chessBoardPlacementHandler.Highlight(chessPlayerPlacementHandler.row + 1, chessPlayerPlacementHandler.column - 1);
@@ -168,9 +188,18 @@ public class HightlightHandler : MonoBehaviour
             {
                 chessBoardPlacementHandler.Highlight(row + 2, column + 1);
             }
+            else if (obstacleChecker.CheckObstacle(row + 2, column + 1))
+            {
+                obstacleChecker.CheckEnemy(row + 2, column + 1);
+            }
+
             if ((column - 1 >= 0) && !obstacleChecker.CheckObstacle(row + 2, column - 1))
             {
                 chessBoardPlacementHandler.Highlight(row + 2, column - 1);
+            }
+            else if (obstacleChecker.CheckObstacle(row + 2, column - 1))
+            {
+                obstacleChecker.CheckEnemy(row + 2, column - 1);
             }
         }
         if (row - 2 >= 0) // Bottom
@@ -179,9 +208,18 @@ public class HightlightHandler : MonoBehaviour
             {
                 chessBoardPlacementHandler.Highlight(row - 2, column + 1);
             }
+            else if (obstacleChecker.CheckObstacle(row - 2, column + 1))
+            {
+                obstacleChecker.CheckEnemy(row - 2, column + 1);
+            }
+
             if ((column - 1 >= 0) && !obstacleChecker.CheckObstacle(row - 2, column - 1))
             {
                 chessBoardPlacementHandler.Highlight(row - 2, column - 1);
+            }
+            else if (obstacleChecker.CheckObstacle(row - 2, column - 1))
+            {
+                obstacleChecker.CheckEnemy(row - 2, column - 1);
             }
         }
         if (column + 2 <= 7) // Right
@@ -190,9 +228,18 @@ public class HightlightHandler : MonoBehaviour
             {
                 chessBoardPlacementHandler.Highlight(row + 1, column + 2);
             }
+            else if (obstacleChecker.CheckObstacle(row + 1, column + 2))
+            {
+                obstacleChecker.CheckEnemy(row + 1, column + 2);
+            }
+
             if ((row - 1 >= 0) && !obstacleChecker.CheckObstacle(row - 1, column + 2))
             {
                 chessBoardPlacementHandler.Highlight(row - 1, column + 2);
+            }
+            else if (obstacleChecker.CheckObstacle(row - 1, column + 2))
+            {
+                obstacleChecker.CheckEnemy(row - 1, column + 2);
             }
         }
         if (column - 2 >= 0) // Left
@@ -201,9 +248,18 @@ public class HightlightHandler : MonoBehaviour
             {
                 chessBoardPlacementHandler.Highlight(row + 1, column - 2);
             }
+            else if (obstacleChecker.CheckObstacle(row + 1, column - 2))
+            {
+                obstacleChecker.CheckEnemy(row + 1, column - 2);
+            }
+
             if ((row - 1 >= 0) && !obstacleChecker.CheckObstacle(row - 1, column - 2))
             {
                 chessBoardPlacementHandler.Highlight(row - 1, column - 2);
+            }
+            else if (obstacleChecker.CheckObstacle(row - 1, column - 2))
+            {
+                obstacleChecker.CheckEnemy(row - 1, column - 2);
             }
         }
     }
@@ -220,13 +276,27 @@ public class HightlightHandler : MonoBehaviour
             {
                 chessBoardPlacementHandler.Highlight(row + 1, column);
             }
+            else if (obstacleChecker.CheckObstacle(row + 1, column))
+            {
+                obstacleChecker.CheckEnemy(row + 1, column);
+            }
+
             if ((column + 1 <= 7) && !obstacleChecker.CheckObstacle(row + 1, column + 1))
             {
                 chessBoardPlacementHandler.Highlight(row + 1, column + 1);
             }
+            else if (obstacleChecker.CheckObstacle(row + 1, column + 1))
+            {
+                obstacleChecker.CheckEnemy(row + 1, column + 1);
+            }
+
             if ((column - 1 >= 0) && !obstacleChecker.CheckObstacle(row + 1, column - 1))
             {
                 chessBoardPlacementHandler.Highlight(row + 1, column - 1);
+            }
+            else if (obstacleChecker.CheckObstacle(row + 1, column - 1))
+            {
+                obstacleChecker.CheckEnemy(row + 1, column - 1);
             }
         }
         if (row - 1 >= 0) // Bottom
@@ -235,13 +305,27 @@ public class HightlightHandler : MonoBehaviour
             {
                 chessBoardPlacementHandler.Highlight(row - 1, column);
             }
+            else if (obstacleChecker.CheckObstacle(row - 1, column))
+            {
+                obstacleChecker.CheckEnemy(row - 1, column);
+            }
+
             if ((column + 1 <= 7) && !obstacleChecker.CheckObstacle(row - 1, column + 1))
             {
                 chessBoardPlacementHandler.Highlight(row - 1, column + 1);
             }
+            else if (obstacleChecker.CheckObstacle(row - 1, column + 1))
+            {
+                obstacleChecker.CheckEnemy(row - 1, column + 1);
+            }
+
             if ((column - 1 >= 0) && !obstacleChecker.CheckObstacle(row - 1, column - 1))
             {
                 chessBoardPlacementHandler.Highlight(row - 1, column - 1);
+            }
+            else if (obstacleChecker.CheckObstacle(row - 1, column - 1))
+            {
+                obstacleChecker.CheckEnemy(row - 1, column - 1);
             }
         }
         if (column + 1 <= 7) // Right
@@ -250,13 +334,27 @@ public class HightlightHandler : MonoBehaviour
             {
                 chessBoardPlacementHandler.Highlight(row, column + 1);
             }
+            else if (obstacleChecker.CheckObstacle(row, column + 1))
+            {
+                obstacleChecker.CheckEnemy(row, column + 1);
+            }
+
             if ((row + 1 <= 7) && !obstacleChecker.CheckObstacle(row + 1, column + 1))
             {
                 chessBoardPlacementHandler.Highlight(row + 1, column + 1);
             }
+            else if (obstacleChecker.CheckObstacle(row + 1, column + 1))
+            {
+                obstacleChecker.CheckEnemy(row + 1, column + 1);
+            }
+
             if ((row - 1 >= 0) && !obstacleChecker.CheckObstacle(row - 1, column + 1))
             {
                 chessBoardPlacementHandler.Highlight(row - 1, column + 1);
+            }
+            else if (obstacleChecker.CheckObstacle(row - 1, column + 1))
+            {
+                obstacleChecker.CheckEnemy(row - 1, column + 1);
             }
         }
         if (column - 1 >= 0) // Left
@@ -265,13 +363,27 @@ public class HightlightHandler : MonoBehaviour
             {
                 chessBoardPlacementHandler.Highlight(row, column - 1);
             }
+            else if (obstacleChecker.CheckObstacle(row, column - 1))
+            {
+                obstacleChecker.CheckEnemy(row, column - 1);
+            }
+
             if ((row + 1 <= 7) && !obstacleChecker.CheckObstacle(row + 1, column - 1))
             {
                 chessBoardPlacementHandler.Highlight(row + 1, column - 1);
             }
+            else if (obstacleChecker.CheckObstacle(row + 1, column - 1))
+            {
+                obstacleChecker.CheckEnemy(row + 1, column - 1);
+            }
+
             if ((row - 1 >= 0) && !obstacleChecker.CheckObstacle(row - 1, column - 1))
             {
                 chessBoardPlacementHandler.Highlight(row - 1, column - 1);
+            }
+            else if (obstacleChecker.CheckObstacle(row - 1, column - 1))
+            {
+                obstacleChecker.CheckEnemy(row - 1, column - 1);
             }
         }
     }

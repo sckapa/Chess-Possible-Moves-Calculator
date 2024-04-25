@@ -6,10 +6,11 @@ TagManager:
   tags:
   - Pawn
   - Rook
-  - Bishop
   - Knight
+  - Bishop
   - Queen
   - King
+  - Enemy
   layers:
   - Default
   - TransparentFX

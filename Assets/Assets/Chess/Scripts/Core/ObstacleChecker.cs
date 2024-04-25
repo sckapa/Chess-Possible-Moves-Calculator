@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ObstacleChecker : MonoBehaviour
 {
+    [SerializeField]
+    private ChessBoardPlacementHandler chessBoardPlacementHandler;
     private ChessPlayerPlacementHandler chessPlayerPlacementHandler;
     private Transform child;
 
@@ -21,5 +23,13 @@ public class ObstacleChecker : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void CheckEnemy(int receivedRow, int receivedColumn)
+    {
+        if (child.transform.tag == "Enemy")
+        {
+            chessBoardPlacementHandler.HighlightRed(receivedRow, receivedColumn);
+        }
     }
 }

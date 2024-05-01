@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Chess Legal Moves Calculator.sln"
+    "dotnet.defaultSolution": "Chess-Possible-Moves-Calculator.sln"
 }
